@@ -22,12 +22,11 @@ contract InteractionsTest is Test {
     function testUserCanFundInteractions() external {
         FundFundMe fundFundMe = new FundFundMe();
 
-        vm.prank(USER);
         vm.deal(USER, 1e18);
         fundFundMe.fundFundMe(address(fundMe));
 
         WithdrawFundMe withdrawFundMe = new WithdrawFundMe();
-        vm.prank(USER);
+
         vm.deal(USER, 1e18);
         withdrawFundMe.withdrawFundMe(address(fundMe));
 

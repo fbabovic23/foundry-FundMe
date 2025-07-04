@@ -19,7 +19,7 @@ contract FundMe {
 
     constructor(address priceFeed) {
         i_owner = msg.sender;
-        s_priceFeed=AggregatorV3Interface(priceFeed);
+        s_priceFeed = AggregatorV3Interface(priceFeed);
     }
 
     function fund() public payable {
@@ -30,7 +30,6 @@ contract FundMe {
     }
 
     function getVersion() public view returns (uint256) {
-        
         return s_priceFeed.version();
     }
 
@@ -77,20 +76,18 @@ contract FundMe {
         fund();
     }
 
-
     //View / Pure functions (GETTERS)
-    function getAddressToAmount(address fundingAddress) public view returns(uint256){
+    function getAddressToAmount(address fundingAddress) public view returns (uint256) {
         return s_addressToAmountFunded[fundingAddress];
-
     }
-    function getFunders(uint256 index) external view returns (address){
+
+    function getFunders(uint256 index) external view returns (address) {
         return s_funders[index];
     }
-    function getOwner() external view returns(address){
+
+    function getOwner() external view returns (address) {
         return i_owner;
     }
-
-
 }
 
 // Concepts we didn't cover yet (will cover in later sections)
